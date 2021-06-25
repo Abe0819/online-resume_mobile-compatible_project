@@ -1,0 +1,559 @@
+/* Fonts from Google.com */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+
+/* CSS VARIABLES */
+
+:root {
+    --header-height: 3rem;
+
+    /* Colors */
+    --title-color: #0B0A0A;
+    --text-color: #403A3A;
+    --text-color-light: #707070;
+    --container-color: #FDFDFD;
+    --container-color-alt: #C9D6DF;
+    --body-color: #FCFCFC;
+
+
+    /* Fonts */
+    --body-font: 'Nunito', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .935rem;
+    --small-font-size: .870rem;
+    --smaller-font-size: .810rem;
+
+
+    /* Font Boldness */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+
+    /* Margins */
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+
+    /* Z-Index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+
+}
+
+
+/* Base */
+
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Variable changes in dark theme */
+body.dark-theme {
+    --title-color: #FDFDFD;
+    --text-color: #C9D6DF;
+    --text-color-light: #707070;
+    --container-color: #1A1A1B;
+    --container-color-alt: #2E383F;
+    --body-color: #333F44;
+}
+
+
+
+/* Theme Change Button */
+.change-theme {
+    position: absolute;
+    right: 0;
+    top: 2.2rem;
+    display: flex;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.change-theme:hover {
+    color: var(--title-color);
+}
+
+/* PDF button */
+.download-pdf {
+    display: none;
+    position: absolute;
+    top: 2.2rem;
+    left: 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.download-pdf:hover {
+    color: var(--title-color);
+}
+
+/* Classes modded to fit */
+
+body {
+    margin:  0 0 var(--header-height) 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,h3,ul,p {
+    margin: 0;
+}
+
+h1,h2,h3 {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* CSS Classes */
+
+.section {
+    padding: 1.5rem 0;
+}
+
+.section-title {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    text-transform: uppercase;
+    letter-spacing: .35rem;
+    text-align: center;
+    margin-bottom: var(--mb-3);
+}
+
+
+
+
+
+/* Layout */
+
+.bd-container {
+    max-width: 1140px;
+    width: calc(100% - 3rem);
+    margin-left: var(--mb-3);
+    margin-right: var(--mb-3);
+}
+
+.bd-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.l-header {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+    box-shadow: 0 -1px 4px rgba(0,0,0,.1);
+    transition: .3s;
+}
+
+
+
+/* NAV */
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 1140px) {
+    .nav__menu {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        padding: 2rem 1.5rem;
+        background-color: var(--body-color);
+        box-shadow: 0 1px 4px rgba(0,0,0,.1);
+        border-radius: 1rem 1rem 0 0;
+        z-index: var(--z-fixed);
+        transition: .3s;
+    }
+}
+
+.nav__logo,
+.nav__toggle {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__toggle {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.nav__item {
+    text-align: center;
+}
+
+.nav__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__link:hover {
+    color: var(--title-color);
+}
+
+.nav__icon {
+    font-size: 1.2rem;
+    margin-bottom: var(--mb-1);
+}
+
+/* make menu appear on mobile */
+.show-menu {
+    bottom: var(--header-height);
+}
+
+.active-link {
+    color: var(--title-color)
+}
+
+/* Home */
+.home {
+    position: relative;
+}
+
+.home__container {
+    gap: 3rem;
+}
+
+.home__data {
+    gap: .5rem;
+    text-align: center;
+}
+
+.home__img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15%;
+    justify-self: center;
+    margin-bottom: var(--mb-1);
+}
+
+.home__title {
+    font-size: var(--h1-font-size);
+}
+
+.home__occupation {
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.home__occupation_2 {  
+    display: none; /* When full size, occupation splits into two lines. This is a sloppy fix used later with a @media query */
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.home__address {
+    gap: 1rem;
+}
+
+.home__information {
+    display: flex;
+    align-items: center;
+    font-size: var(--small-font-size);
+}
+
+.home__icon {
+    font-size: var(--small-font-size);
+    margin-right: .25rem;
+}
+
+.home__button-mobile {
+    display: inline-block;
+    border: 2px solid var(--text-color);
+    color: var(--title-color);
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+    transition: .3s;
+    font-weight: var(--font-medium);
+    font-size: var(--smaller-font-size);
+}
+
+.home__button-mobie:hover {
+    background-color: var(--text-color);
+    color: var(--container-color);
+}
+
+
+/* Social */
+
+.social__container {
+    grid-template-columns: max-content;
+    gap: 1rem;
+}
+
+.social__link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+}
+
+.social__link:hover {
+    color: var(--container-color);
+}
+
+
+.social__icon {
+    font-size: 1.2rem;
+    margin-right: .25rem;
+}
+
+/* Profile */
+
+.profile__description {
+    text-align: center;
+}
+
+
+/* Education */
+.education__content {
+    display: flex;
+}
+
+.education__time {
+    padding-right: 1rem;
+}
+
+.education__line {
+    display: inline-block;
+    height: 3px;
+    width: 8px;
+    background-color: var(--text-color-light);
+    border-radius: 25%;
+    margin-bottom: .19rem;
+}
+
+.education__data {
+    gap: .5rem;
+}
+
+.education__title {
+    font-size: var(--h3-font-size);
+}
+
+.education__studies {
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.education__year {
+    font-size: var(--smaller-font-size);
+    font-style: italic;
+}
+
+
+/* Languages that I know */
+.skills__content {
+    gap: 0;
+}
+
+.skills__name {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-3);
+}
+
+.skills__disclaimer {
+    font-style: italic;
+    font-size: var(--smaller-font-size);
+}
+
+.skills__square {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: var(--text-color);
+    border-radius: 25%;
+    margin-right: .50rem;
+}
+
+/* Courses */
+.courses__content {
+    gap: 0;
+}
+
+.course__name {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-3);
+}
+
+.course__square {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: var(--text-color);
+    border-radius: 25%;
+    margin-right: .50rem;
+}
+
+/* Languages */
+.language__container {
+    grid-template-columns: repeat(2,1fr);
+}
+.language__content {
+    align-items: center;
+    margin-bottom: var(--mb-3);
+}
+
+.language__square {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: var(--text-color);
+    border-radius: 25%;
+    margin-right: .50rem;
+}
+
+/* Interests */
+.interests__container {
+    grid-template-columns: repeat(3,1fr);
+    margin-top: var(--mb-2);
+}
+
+.interests__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interests__icon {
+    font-size: .94rem;
+    color: var(--text-color);
+    margin-bottom: .25rem;
+}
+
+/* scroll top button */
+.scrolltop {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    background-color: var(--container-color-alt);
+    border-radius: .4rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    visibility: hidden;
+}
+
+.scrolltop__icon {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.show-scroll {
+    visibility: visible;
+    bottom: 5rem;
+}
+
+@media screen and (min-width: 1140px) {
+    body {
+        margin: 3rem 0;
+    }
+
+    .bd-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .l-header,
+    .scrolltop {
+        display: none;
+    }
+
+    .interests__container{
+        margin-top: 1rem;
+    }
+
+    .resume {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        gap: 0 3rem;
+        background-color: var(--container-color);
+        box-shadow: 0 0 8px rgba(13,12,12,.15);
+    }
+
+    .resume__left {
+        background-color: var(--container-color-alt);
+    }
+
+    .resume__left,
+    .resume__right {
+        padding: 0 2rem;
+    }
+
+    .home__occupation_2 {
+        display: inline-block;
+    }
+
+    .home__occupation{
+        display: none;
+    }
+
+    .home__button-mobile{
+        display: none;
+    }
+
+    .section-title,
+    .profile__description {
+        text-align: initial;
+    }
+    
+    .interests__content {
+        align-items: flex-start;
+    }
+
+    .home__container {
+        gap: 1.5rem;
+    }
+
+    .download-pdf {
+        display: inline-block;
+    }
+    
+    
+}
