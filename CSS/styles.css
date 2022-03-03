@@ -1,7 +1,6 @@
 /* Fonts from Google.com */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
-
 /* CSS VARIABLES */
 
 :root {
@@ -12,7 +11,7 @@
     --text-color: #403A3A;
     --text-color-light: #707070;
     --container-color: #FDFDFD;
-    --container-color-alt: #C9D6DF;
+    --container-color-alt: #E9DAC1;
     --body-color: #FCFCFC;
 
 
@@ -58,8 +57,8 @@ body.dark-theme {
     --text-color: #C9D6DF;
     --text-color-light: #707070;
     --container-color: #1A1A1B;
-    --container-color-alt: #2E383F;
-    --body-color: #333F44;
+    --container-color-alt: #16253E;
+    --body-color: #000000;
 }
 
 
@@ -265,8 +264,9 @@ img {
     height: 150px;
     border-radius: 15%;
     justify-self: center;
+    margin-top: var(--mb-2);
     margin-bottom: var(--mb-1);
-}
+}   
 
 .home__title {
     font-size: var(--h1-font-size);
